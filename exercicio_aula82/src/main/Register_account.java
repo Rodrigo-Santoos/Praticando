@@ -11,6 +11,7 @@ public class Register_account {
 
 		Locale.setDefault(Locale.US);
 		Scanner entrada = new Scanner(System.in);
+		Account acc;
 
 		int numA;
 		String holder;
@@ -31,23 +32,22 @@ public class Register_account {
 		if (res.equals("y")) {
 			System.out.print("Enter initial deposit value: ");
 			deposi = entrada.nextDouble();
+			acc = new Account(numA, holder, deposi);
+		} else {
+			acc = new Account(numA, res);
 		}
 //-----------------------------------------------------------------------------------------------------------------------------
 		// add deposit
-		System.out.println();
-		Account acc = new Account(numA, holder, deposi);
 
 		System.out.println("Account data:");
 
 		System.out.println(acc.toString());
 
-		System.out.println();
-		System.out.println();
+		acc.pularLinha();
 		System.out.print("Enter a deposit value: ");
 		double deposi2 = entrada.nextDouble();
 
-		acc.addDepo(deposi, deposi2);
-
+		acc.addDepo(deposi2);
 
 		System.out.println("Account data:");
 
@@ -55,17 +55,15 @@ public class Register_account {
 
 //------------------------------------------------------------------------------------------------------------------------------
 		// cash withdrawal
-		System.out.println();
-		System.out.println();
+		acc.pularLinha();
 		System.out.print("Enter a withdraw value: ");
 		double withdraw = entrada.nextDouble();
 
 //		deposi = (deposi - withdraw) - 5.00;
 //
 //		acc.setDepositValue(deposi);
-		
-		
-		acc.withCash(deposi, withdraw);
+
+		acc.withCash(withdraw);
 
 		System.out.println("Account data:");
 

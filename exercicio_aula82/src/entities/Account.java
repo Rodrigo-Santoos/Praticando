@@ -10,17 +10,19 @@ public class Account {
 	public Account(int accontNum, String accontHol, double depositValue) {
 		this.accontNum = accontNum;
 		this.accontHol = accontHol;
-		this.depositValue = depositValue;
+		addDepo(depositValue);
+	}
+	
+	public Account(int accontNum, String accontHol ) {
+		this.accontNum = accontNum;
+		this.accontHol = accontHol;
+		
 	}
 
 //------------------------------------------------------------------------------------------------------------------------------
 //Getters e Setters
 	public int getAccontNum() {
 		return accontNum;
-	}
-
-	public void setAccontNum(int accontNum) {
-		this.accontNum = accontNum;
 	}
 
 	public String getAccontHol() {
@@ -44,23 +46,25 @@ public class Account {
 
 	// print
 	public String toString() {
-		return "Account " + getAccontNum() + ", " + " Holder: " + getAccontHol() + ", " + "Balance: "
+		return "Account " + getAccontNum() + "," + " Holder: " + getAccontHol() + ", " + "Balance: "
 				+ String.format("$ %.2f", getDepositValue());
 	}
 
+	// pulando linha para dar espaço
+	public void pularLinha() {
+		System.out.println();
+	}
+
 	// add deposit
-	public double addDepo(double repo, double add) {
-		this.depositValue += add;
-		repo += + add;
+	public double addDepo(double add) {
+		depositValue += add;
 		setDepositValue(depositValue);
 		return getDepositValue();
-
 	}
-	
+
 	// cash withdrawal
-	public double withCash(double deposi, double withdraw) {
-		
-		this.depositValue += - withdraw - 5.00;
+	public double withCash(double withdraw) {
+		depositValue += - withdraw - 5.00;
 		setDepositValue(depositValue);
 		return getDepositValue();
 	}

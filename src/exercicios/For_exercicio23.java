@@ -8,7 +8,7 @@ public class For_exercicio23 {
 
 		Scanner entrada = new Scanner (System.in);
 		
-		int produto;
+//		int produto;
 		
 
 		
