@@ -29,7 +29,7 @@ public class Program_2 {
 
 			System.out.print("Numero do Quarto: ");
 			int quarto = entrada.nextInt();
-
+			
 			vect[quarto] = new Cadastro(name, email);
 		}
 
