@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import entities.enums.WorkerLevel;
@@ -69,8 +70,8 @@ public class Worker {
 	public List<HourContract> getContracts() {
 		return contracts;
 	}
-
-	//nao pode deixar a lista ser trocada por isso esta comentada, so pode adicionar e delatar, mas nao pode troca a lista
+	
+//  nao pode deixar a lista ser trocada por isso esta comentada, so pode adicionar e delatar, mas nao pode troca a lista
 //	public void setContracts(List<HourContract> contracts) {
 //		this.contracts = contracts;
 //	}
@@ -88,9 +89,27 @@ public class Worker {
 		contracts.remove(removeConstract);
 	}
 	
-	//calculo de ganho por mes e ano
-	public Double income(int year, int month) {
-		return 
+	public double income(int year, int month) {
+		double sum = baseSalary ;
+		
+		//instanciado o calendar para pega o mes e o ano
+		Calendar cal = Calendar.getInstance();
+		for(HourContract c : contracts) {
+			cal.setTime(c.getDate());
+			
+			int c_year = cal.get(Calendar.YEAR);
+			int c_month = cal.get(Calendar.MONTH);
+			
+			if(year == c_year && month == c_month) {
+				sum += c.totalValue();
+			}
+		}
+		return sum;
+
 	}
-	
 }
+//caso queira somar todos os valores do contrato
+//for(HourContract c : constracts) {
+//	sum += c.totalValue();
+//}
+//return sum;
