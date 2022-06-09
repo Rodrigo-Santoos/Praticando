@@ -16,9 +16,9 @@ public class Worker {
 	private Department department;
 
 	// associacao com a classe HourContract
-	//instanciando a lista HourConstract
+	// instanciando a lista HourConstract
 	private List<HourContract> contracts = new ArrayList<>();
-	
+
 //========================================================================================================
 //constructor
 	public Worker() {
@@ -31,7 +31,7 @@ public class Worker {
 		this.baseSalary = baseSalary;
 		this.department = department;
 	}
-	
+
 //========================================================================================================
 //getters e setters
 
@@ -70,44 +70,46 @@ public class Worker {
 	public List<HourContract> getContracts() {
 		return contracts;
 	}
-	
+
 //  nao pode deixar a lista ser trocada por isso esta comentada, so pode adicionar e delatar, mas nao pode troca a lista
 //	public void setContracts(List<HourContract> contracts) {
 //		this.contracts = contracts;
 //	}
-	
+
 //========================================================================================================	
 //metodos
-	
-	//adicionando o contrato na lista contracts 
+
+	// adicionando o contrato na lista contracts
 	public void addContract(HourContract addContract) {
 		contracts.add(addContract);
 	}
-	
-	//removendo o contrato na lista contracts 
+
+	// removendo o contrato na lista contracts
 	public void removeConstract(HourContract removeConstract) {
 		contracts.remove(removeConstract);
 	}
-	
+
 	public double income(int year, int month) {
-		double sum = baseSalary ;
-		
-		//instanciado o calendar para pega o mes e o ano
+		double sum = baseSalary;
+		// instanciado o calendar para pega o mes e o ano
 		Calendar cal = Calendar.getInstance();
-		for(HourContract c : contracts) {
+		for (HourContract c : contracts) {
 			cal.setTime(c.getDate());
-			
 			int c_year = cal.get(Calendar.YEAR);
-			int c_month = cal.get(Calendar.MONTH);
-			
-			if(year == c_year && month == c_month) {
+			int c_month = 1 + cal.get(Calendar.MONTH);
+			if (year == c_year && month == c_month) {
 				sum += c.totalValue();
+			}else {
+				System.out.println("sai");
 			}
 		}
 		return sum;
 
 	}
 }
+
+//========================================================================================================
+
 //caso queira somar todos os valores do contrato
 //for(HourContract c : constracts) {
 //	sum += c.totalValue();

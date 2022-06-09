@@ -3,7 +3,8 @@ package entities;
 public class Department {
 
 	private String name;
-
+	
+//========================================================================================================	
 // constructor
 	public Department() {
 
@@ -12,7 +13,8 @@ public class Department {
 	public Department(String name) {
 		this.name = name;
 	}
-
+	
+//========================================================================================================	
 //getters e	setters
 	public String getName() {
 		return name;

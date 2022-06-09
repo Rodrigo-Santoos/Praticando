@@ -7,7 +7,8 @@ public class HourContract {
 	private Date date;
 	private Double valuePerhour;
 	private Integer hours;
-
+	
+//========================================================================================================	
 //contructor
 	public HourContract() {
 
@@ -18,7 +19,8 @@ public class HourContract {
 		this.valuePerhour = valuePerhour;
 		this.hours = hours;
 	}
-
+	
+//========================================================================================================
 //getter e setters
 
 	public Date getDate() {
@@ -45,6 +47,7 @@ public class HourContract {
 		this.hours = hours;
 	}
 	
+//========================================================================================================		
 // metodos
 	
 	public double totalValue() {
